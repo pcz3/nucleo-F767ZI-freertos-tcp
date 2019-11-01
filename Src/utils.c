@@ -6,6 +6,7 @@
  * @brief Utility functions
  *******************************************************************************/
 
+#include "rng.h"
 #include "utils.h"
 #include "cmsis_os.h"
 
@@ -25,6 +26,19 @@ static void prvUtilsHeartbeatTask(void *pvParameters)
 		WRITE_REG(GPIOB->BSRR, BSRR_OFF(LD2_Pin));
 		vTaskDelay(pdMS_TO_TICKS(usDelay));
 	}
+}
+
+/**
+ * @brief Wrap HAL random number generator for FreeRTOS TCP/IP
+ *
+ * @warning If HAL call fails, the garbage value at the address of @c ulRand
+ * will be returned.
+ */
+uint32_t uxRand()
+{
+	uint32_t ulRand;
+	HAL_RNG_GenerateRandomNumber(&hrng, &ulrand);
+	return ulRand;
 }
 
 /*

@@ -29,6 +29,7 @@ extern "C" {
 #define BSRR_ON( VAL )		( (uint16_t)VAL )
 #define BSRR_OFF( VAL )		( (uint16_t)VAL << 16 )
 
+uint32_t uxRand(void);
 void vUtilsInit(void);
 
 #ifdef __cplusplus
