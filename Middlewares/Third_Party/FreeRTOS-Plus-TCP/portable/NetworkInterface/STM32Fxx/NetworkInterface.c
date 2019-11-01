@@ -1013,13 +1013,23 @@ static void prvEthernetUpdateConfig( BaseType_t xForce )
 			assert_param( IS_ETH_SPEED( xETH.Init.Speed ) );
 			assert_param( IS_ETH_DUPLEX_MODE( xETH.Init.DuplexMode ) );
 
+			/**
+			 * Maybe I'm being dense but this if statement seems to do the
+			 * opposite of what we want. If ETH mode is full duplex we set the
+			 * PHY mode to half duplex and vice versa? We're typically auto-
+			 * negotiating, but this could fuck someone over pretty.
+			 * mysteriously... Commenting it out and correcting for now. We'll
+			 * revert if I'm the asshole and missing something.
+			 */
 			if( xETH.Init.DuplexMode == ETH_MODE_FULLDUPLEX )
 			{
-				xPhyObject.xPhyPreferences.ucDuplex = PHY_DUPLEX_HALF;
+				// xPhyObject.xPhyPreferences.ucDuplex = PHY_DUPLEX_HALF;
+				xPhyObject.xPhyPreferences.ucDuplex = PHY_DUPLEX_FULL;
 			}
 			else
 			{
-				xPhyObject.xPhyPreferences.ucDuplex = PHY_DUPLEX_FULL;
+				// xPhyObject.xPhyPreferences.ucDuplex = PHY_DUPLEX_FULL;
+				xPhyObject.xPhyPreferences.ucDuplex = PHY_DUPLEX_HALF;
 			}
 
 			if( xETH.Init.Speed == ETH_SPEED_10M )
