@@ -34,6 +34,8 @@ extern "C" {
 #include "FreeRTOSIPConfig.h"
 #include "FreeRTOSIPConfigDefaults.h"
 #include "IPTraceMacroDefaults.h"
+#include "FreeRTOS.h"
+#include "cmsis_os.h"
 
 /* Some constants defining the sizes of several parts of a packet */
 #define ipSIZE_OF_ETH_HEADER			14u
