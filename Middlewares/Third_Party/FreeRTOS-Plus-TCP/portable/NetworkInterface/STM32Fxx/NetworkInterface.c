@@ -1017,9 +1017,9 @@ static void prvEthernetUpdateConfig( BaseType_t xForce )
 			 * Maybe I'm being dense but this if statement seems to do the
 			 * opposite of what we want. If ETH mode is full duplex we set the
 			 * PHY mode to half duplex and vice versa? We're typically auto-
-			 * negotiating, but this could fuck someone over pretty.
+			 * negotiating, but this could fuck someone over pretty
 			 * mysteriously... Commenting it out and correcting for now. We'll
-			 * revert if I'm the asshole and missing something.
+			 * revert if I'm the asshole and missing something obvious.
 			 */
 			if( xETH.Init.DuplexMode == ETH_MODE_FULLDUPLEX )
 			{
