@@ -26,7 +26,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */     
-
+#include "utils.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -107,6 +107,7 @@ void StartDefaultTask(void const * argument)
 {
 
 	/* USER CODE BEGIN StartDefaultTask */
+	vUtilsInit();
 	/* Infinite loop */
 	for(;;)
 	{
