@@ -37,7 +37,7 @@ static void prvUtilsHeartbeatTask(void *pvParameters)
 uint32_t uxRand()
 {
 	uint32_t ulRand;
-	HAL_RNG_GenerateRandomNumber(&hrng, &ulrand);
+	HAL_RNG_GenerateRandomNumber(&hrng, &ulRand);
 	return ulRand;
 }
 
