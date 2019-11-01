@@ -24,6 +24,7 @@
 
 /* USER CODE END 0 */
 
+#if ( globalUSE_DEFAULT_ETH_INIT != 0 )
 ETH_HandleTypeDef heth;
 
 /* ETH init function */
@@ -55,6 +56,7 @@ void MX_ETH_Init(void)
   }
 
 }
+#endif /* globalUSE_DEFAULT_ETH_INIT */
 
 void HAL_ETH_MspInit(ETH_HandleTypeDef* ethHandle)
 {
