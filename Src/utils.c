@@ -29,6 +29,24 @@ static void prvUtilsHeartbeatTask(void *pvParameters)
 }
 
 /**
+ * @brief Wrapper for random number generator
+ *
+ * @warning For testing purposes only, no regard to RFC 6528
+ */
+uint32_t ulApplicationGetNextSequenceNumber( uint32_t ulSourceAddress,
+		uint16_t usSourcePort,
+		uint32_t ulDestinationAddress,
+		uint16_t usDestinationPort )
+{
+	UNUSED(ulSourceAddress);
+	UNUSED(usSourcePort);
+	UNUSED(ulDestinationAddress);
+	UNUSED(usDestinationPort);
+
+	return uxRand();
+}
+
+/**
  * @brief Wrap HAL random number generator for FreeRTOS TCP/IP
  *
  * @warning If HAL call fails, the garbage value at the address of @c ulRand
