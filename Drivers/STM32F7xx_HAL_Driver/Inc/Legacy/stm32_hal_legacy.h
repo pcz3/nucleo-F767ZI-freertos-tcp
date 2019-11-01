@@ -1080,6 +1080,7 @@
 #define ETH_MMCRFAECR          0x00000198U
 #define ETH_MMCRGUFCR          0x000001C4U
 
+#if (globalHAL_ETH_LEGACY_MODULE_ENABLED == 1)
 #define ETH_MAC_TXFIFO_FULL                             0x02000000U  /* Tx FIFO full */
 #define ETH_MAC_TXFIFONOT_EMPTY                         0x01000000U  /* Tx FIFO not empty */
 #define ETH_MAC_TXFIFO_WRITE_ACTIVE                     0x00400000U  /* Tx FIFO write active */
@@ -1110,7 +1111,7 @@
 #define ETH_MAC_SMALL_FIFO_WRITE_ACTIVE       0x00000004U  /* MAC small FIFO write controller active */
 #define ETH_MAC_SMALL_FIFO_RW_ACTIVE          0x00000006U  /* MAC small FIFO read / write controllers active */
 #define ETH_MAC_MII_RECEIVE_PROTOCOL_ACTIVE   0x00000001U  /* MAC MII receive protocol engine active */
-
+#endif /* globalHAL_ETH_LEGACY_MODULE_ENABLED */
 /**
   * @}
   */

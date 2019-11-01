@@ -588,6 +588,7 @@ const TickType_t xBlockTimeTicks = pdMS_TO_TICKS( 50u );
 	/* Open a do {} while ( 0 ) loop to be able to call break. */
 	do
 	{
+		#if ( ipconfigSUPPORT_LOOPBACK != 0 )
 		if( xCheckLoopback( pxDescriptor, bReleaseAfterSend ) != 0 )
 		{
 			/* The packet has been sent back to the IP-task.
@@ -596,6 +597,7 @@ const TickType_t xBlockTimeTicks = pdMS_TO_TICKS( 50u );
 			bReleaseAfterSend = pdFALSE;
 			break;
 		}
+		#endif /* ipconfigSUPPORT_LOOPBACK */
 		#if( ipconfigDRIVER_INCLUDED_TX_IP_CHECKSUM != 0 )
 		{
 		ProtocolPacket_t *pxPacket;
