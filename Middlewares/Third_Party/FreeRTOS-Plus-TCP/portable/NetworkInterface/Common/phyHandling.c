@@ -474,6 +474,9 @@ TimeOut_t xTimer;
 	{
 		return 0;
 	}
+	/**
+	 * Loop over each port to configure PHY address and enable auto-neg
+	 */
 	for( xPhyIndex = 0; xPhyIndex < pxPhyObject->xPortCount; xPhyIndex++ )
 	{
 		if( ( ulPhyMask & ( 1lu << xPhyIndex ) ) != 0lu )
